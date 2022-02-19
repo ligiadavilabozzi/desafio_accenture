@@ -2,37 +2,42 @@ from os.path import exists
 import time
 import pyodbc
 import pandas as pd
+import datetime
 
 connection = pyodbc.connect(
     'DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-I882R5G;DATABASE=inconsistencia;Trusted_Connection=yes;')
 cursor = connection.cursor()
 
 
-def lerArquivoClientes(id=1, contador=1):
-    arquivoCliente = open(f"./csv/clients-00{id}.csv", "r", encoding="utf-8")
+def lerArquivoClientes(idf=1, contador=1):
 
-   # print(f"===== lendo arquivo clients-00{id}.csv ===== ")
-    time.sleep(2)
+    # arquivoCliente = open(f"./csv/clients-00{id}.csv", "r", encoding="utf-8")
+    print(f"./csv/clients-00{(idf+1)}.csv")
+    data = pd.read_csv(
+        f"./csv/clients-00{idf}.csv", sep=";", encoding="utf-8")
+    df = pd.DataFrame(data)
 
     while True:
         contador += 1
-        linha = arquivoCliente.readline()
-        print(linha)
-
-        if not linha:
-            break
-        cursor.execute('''
-        insert into clientes(cliente_id, nome, email, data_cadastro, telefone)
-        values(linha.cliente_id, linha.nome, linha.email, linha.data_cadastro, linha.telefone)
-        ''')
-
+        for row in df.itertuples():
+            cursor.execute('''
+           insert into clientes(cliente_id, nome, email, data_cadastro, telefone)
+          values(?,?,?,?,?)
+        ''',
+                           row[1],
+                           row[2],
+                           row[3],
+                           row[4],
+                           row[5]
+                           )
         connection.commit()
-        print("Linha {}: {}".format(contador, linha.strip()))
-    arquivoCliente.close()
+        if not row:
+            break
+        data.close()
 
-    if exists(f"./csv/clients-00{(id+1)}.csv"):
-        lerArquivoClientes(id+1, contador)
-        print(id)
+    if exists(f"./csv/clients-00{(idf+1)}.csv"):
+        lerArquivoClientes(idf+1, contador)
+        print(f"./csv/clients-00{(idf+1)}.csv")
 
 
 '''
@@ -55,10 +60,10 @@ def lerArquivoTransactionIn(id=1, contador=1):
 
 
 def lerArquivoTransactionOut(id=1, contador=1):
-    #id = str.zfill(3)
+    # id = str.zfill(3)
     # .rjust(3, '0')
     id_str = str(id)
-    #id = f'{id_str.zfill(3)}'
+    # id = f'{id_str.zfill(3)}'
     arquivoTransaction = open(
         f"./csv/transaction-out-{id_str.zfill(3)}.csv", "r", encoding="utf-8")
     print(f"===== lendo arquivo transaction-out-{id_str.zfill(3)}.csv ===== ")
