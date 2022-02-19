@@ -1,3 +1,13 @@
+# TRABALHO REALIZADO EM GRUPO: 
+- Ana Vitória de Souza Cruz:
+- Flávia Labanca: https://github.com/flavialabanca
+- Lígia D'Ávila Bozzi: https://github.com/ligiadavilabozzi
+- Lívia Lins Melo
+- Marcia Talyta Campelo Reis: https://github.com/marciacampeloreis 
+- Rayana Alves
+- Thalita Roberta Macêdo Lima
+
+
 # DESAFIO ACCENTURE - DATA AZURE
 ### Qual o desafio? 
 Desenvolver uma aplicação em Python para carga de arquivos em um banco de dados SQL e gerar relatórios estatísticos visando a descoberta de fraudes em cartão de crédito.
@@ -20,14 +30,6 @@ Hospedagem do sistema (nuvem Azure) para rodar os Scripts
 Análise relacional do banco de dados
 Objetivo alcançado com os relatórios apresentados no PowerBI
 
-# TRABALHO REALIZADO EM GRUPO: 
-- Ana Vitória de Souza Cruz:
-- Flávia Labanca: 
-- Lígia D'Ávila Bozzi: https://github.com/ligiadavilabozzi
-- Lívia Lins Melo
-- Marcia Talyta Campelo Reis: https://github.com/marciacampeloreis 
-- Rayana Alves
-- Thalita Roberta Macêdo Lima
 
 
 
