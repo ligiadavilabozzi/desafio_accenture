@@ -20,10 +20,14 @@ def lerArquivoClientes(id=1):
             break
         else:
             linha_array = linha.strip().split(sep=";")
-            linha_array[0] = int(linha_array[0])
-            linha_tupla = tuple(linha_array)
+
+            cliente_id = int(linha_array[0])
+            nome = linha_array[1]
+            email = linha_array[2]
+            data_cadastro = linha_array[3].removesuffix("-0300")
+            telefone = linha_array[4]
             cursor.execute(
-                "insert into clientes(cliente_id, nome, email, data_cadastro, telefone) values (?,?,?,?,?)", linha_tupla)
+                "insert into clientes(cliente_id, nome, email, data_cadastro, telefone) values (?,?,?,?,?)", cliente_id, nome, email, data_cadastro, telefone)
             connection.commit()
     arquivo.close()
 
@@ -31,6 +35,7 @@ def lerArquivoClientes(id=1):
         lerArquivoClientes(id+1)
 
 
+'''
 def lerArquivoEntradas(id=1):
     id_str = str(id)
     arquivo = open(
@@ -87,7 +92,7 @@ lerArquivoSaidas()
 
 cursor.close()
 connection.close()
-
+'''
 '''
 from os.path import exists
 import pandas as pd
@@ -143,9 +148,11 @@ def lerArquivoTransactionOut(id=1, contador=1):
 
     if exists(f"./csv/transaction-out-{str(id+1).zfill(3)}.csv"):
         lerArquivoTransactionOut(id+1, contador)
-
+'''
+'''
 '''
 
+lerArquivoClientes()
 '''
 time.sleep(2)
 lerArquivoTransactionIn()
