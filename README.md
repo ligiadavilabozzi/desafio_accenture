@@ -30,6 +30,12 @@ Hospedagem do sistema (nuvem Azure) para rodar os Scripts
 Análise relacional do banco de dados
 Objetivo alcançado com os relatórios apresentados no PowerBI
 
+### Passo a Passo 
+- sql server: 
+CREATE DATABASE clientes
+
+
+
 
 
 
