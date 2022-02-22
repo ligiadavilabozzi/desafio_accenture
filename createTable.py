@@ -4,7 +4,6 @@ connection = pyodbc.connect(
     'DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-I882R5G;DATABASE=inconsistencia;Trusted_Connection=yes;')
 cursor = connection.cursor()
 
-
 cursor.execute('DROP TABLE IF exists entradas')
 cursor.execute('DROP TABLE IF exists saidas')
 cursor.execute('DROP TABLE IF exists clientes')
