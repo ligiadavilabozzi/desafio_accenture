@@ -5,25 +5,47 @@ connection = pyodbc.connect(
 cursor = connection.cursor()
 
 
+cursor.execute('DROP TABLE IF exists entradas')
+cursor.execute('DROP TABLE IF exists saidas')
 cursor.execute('DROP TABLE IF exists clientes')
+
+
 cursor.execute(
     '''
-CREATE TABLE clientes 
-    (cliente_id int NOT NULL PRIMARY KEY, 
-    nome varchar(255) NOT NULL, 
-    email varchar(255) NOT NULL, 
-    data_cadastro datetime, 
-    telefone varchar(20) NOT NULL)
+    CREATE TABLE clientes(
+  cliente_id int PRIMARY KEY, 
+  nome varchar(255) NOT NULL, 
+  email varchar(255) NOT NULL , 
+  data_cadastro datetime NOT NULL , 
+  telefone varchar(20) NOT NULL 
+)
 ''')
 connection.commit()
 
-cursor.execute('DROP TABLE IF exists entradas')
 cursor.execute(
     '''
-CREATE TABLE entradas 
-    (entrada_id int NOT NULL PRIMARY KEY, 
-    cliente_id int FOREIGN KEY REFERENCES clientes(cliente_id),
-    valor float NOT NULL, 
-    data_hora datetime NOT NULL)
+    CREATE TABLE entradas(
+	id int PRIMARY KEY,
+	cliente_id int NOT NULL ,
+	valor decimal (25,2) NOT NULL,
+	data datetime NOT NULL,
+	FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id)
+  )
 ''')
 connection.commit()
+
+cursor.execute(
+    '''
+    CREATE TABLE saidas(
+	id int PRIMARY KEY,
+	cliente_id int NOT NULL ,
+	valor decimal (25,2) NOT NULL,
+	data datetime NOT NULL,
+	FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id)
+)
+''')
+connection.commit()
+
+
+cursor.close()
+connection.close()
