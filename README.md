@@ -1,28 +1,29 @@
 # DESAFIO ACCENTURE - DATA AZURE
 
-### **Qual o desafio?**
-
-Desenvolver uma aplicação em Python para carga de arquivos em um banco de dados SQL e gerar relatórios estatísticos visando a descoberta de fraudes em cartão de crédito.
-
-### **Objetivos:**
-
-Seu objetivo inicial é analisar estes arquivos criando uma base de dados relacional para fazer a carga e depois analisá-la. O cartão fraudado, será aquele que tiver movimentações abaixo de 2 minutos de espaçamento entre as transações.
-
 ## Tabela de conteúdos
 
 **=================**
 
-- [DESAFIO ACCENTURE - DATA AZURE](#desafio-accenture---data-azure)
-    - [**Qual o desafio?**](#qual-o-desafio)
-    - [**Objetivos:**](#objetivos)
+  - [Qual o desafio?](#qual-o-desafio)
+  - [Objetivos](#objetivos)
   - [Tabela de conteúdos](#tabela-de-conteúdos)
-  - [**Features**](#features)
-  - [**Pré-requisitos**](#pré-requisitos)
-  - [**🎲**Modelagem de entidades e relacionamentos](#modelagem-de-entidades-e-relacionamentos)
-  - [****🔃**Rodando a aplicação**](#rodando-a-aplicação)
+  - [Features](#features)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Modelagem de entidades e relacionamentos](#modelagem-de-entidades-e-relacionamentos)
+  - [Rodando a aplicação](#rodando-a-aplicação)
   - [Relatórios do Power BI](#relatórios-do-power-bi)
   - [🛠 Tecnologias](#-tecnologias)
   - [Grupo](#grupo)
+
+### **Qual o desafio**
+
+Desenvolver uma aplicação em Python para carga de arquivos em um banco de dados SQL e gerar relatórios estatísticos visando a descoberta de fraudes em cartão de crédito.
+
+### **Objetivos**
+
+Seu objetivo inicial é analisar estes arquivos criando uma base de dados relacional para fazer a carga e depois analisá-la. O cartão fraudado, será aquele que tiver movimentações abaixo de 2 minutos de espaçamento entre as transações.
+
+
 
 ## **Features**
 
@@ -34,22 +35,16 @@ Seu objetivo inicial é analisar estes arquivos criando uma base de dados relaci
 ## **Pré-requisitos**
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+- [Python](https://www.python.org)
+- [Git](https://git-scm.com)
 
-[Git](https://git-scm.com), 
-
-[Python](https://www.python.org).
-
-*Bibliotecas da aplicação: 
-
-[Pyodbc]
-
-[os.path] 
+Bibliotecas da aplicação: [Pyodbc](https://mkleehammer.github.io/pyodbc/), [os.path](https://docs.python.org/3/library/os.path.html)
 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-## **🎲**Modelagem de entidades e relacionamentos
+## **Modelagem de entidades e relacionamentos**
 
-## ****🔃**Rodando a aplicação**
+## **Rodando a aplicação**
 
 ```bash
 # Clone este repositório
@@ -79,8 +74,10 @@ $ python migrate.py
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
-- [Python](https://www.python.org/)
-- [SQL Server]([https://nodejs.org/en/](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads))
+- ![badge](https://img.shields.io/badge/python-v3.9.7-blue)
+- ![Server](https://img.shields.io/badge/SQL%20Server-18-yellow)
+- ![PowerBI](https://img.shields.io/badge/Power%20BI-Desktop-yellow)
+- ![VS Code](https://img.shields.io/badge/Visual%20Studio-Code-blue)
 
 ## Grupo
 
