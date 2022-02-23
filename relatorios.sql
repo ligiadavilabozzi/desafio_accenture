@@ -9,7 +9,7 @@ INNER JOIN clientes C
 ON S1.cliente_id = C.cliente_id
 ORDER BY S1.cliente_id
 
--- Para saber o cliente e a data do fraude: 
+-- Para saber os clientes fraudados nas entradas e a data do fraude: 
 SELECT  C.nome, C.telefone, E1.valor, E1.data, E2.valor, E2.data 
 from entradas E1
 inner join entradas E2 
@@ -19,6 +19,47 @@ DATEDIFF(SECOND,E1.data, E2.data) < 120
 INNER JOIN clientes C
 ON E1.cliente_id = C.cliente_id
 ORDER BY E1.cliente_id
+
+
+--Tabela de transações fraudes de entradas: 
+CREATE TABLE transacoes_fraude_entradas (
+id int IDENTITY(1,1) PRIMARY KEY, 
+cliente_id int NOT NULL, 
+FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+nome varchar(255) NOT NULL
+) 
+
+-- Inserir dados na tabela transacoes fraudes entradas
+INSERT INTO transacoes_fraude_entradas (cliente_id , nome)
+SELECT C.cliente_id, C.nome
+from entradas E1
+inner join entradas E2 
+ON E1.cliente_id = E2.cliente_id and 
+DATEDIFF(SECOND,E1.data, E2.data) > 0 and 
+DATEDIFF(SECOND,E1.data, E2.data) < 120 
+INNER JOIN clientes C
+ON E1.cliente_id = C.cliente_id
+
+--Tabela de trasações fraudes de saidas: 
+CREATE TABLE transacoes_fraude_saidas (
+id int IDENTITY(1,1) PRIMARY KEY, 
+cliente_id int NOT NULL, 
+FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+nome varchar(255) NOT NULL
+) 
+
+
+-- Inserir dados na tabela transacoes fraudes SAIDAS
+INSERT INTO transacoes_fraude_saidas (cliente_id , nome)
+SELECT C.cliente_id, C.nome
+from saidas S1
+inner join saidas S2 
+ON S1.cliente_id = S2.cliente_id and 
+DATEDIFF(SECOND,S1.data, S2.data) > 0 and 
+DATEDIFF(SECOND,S1.data, S2.data) < 120 
+INNER JOIN clientes C
+ON S1.cliente_id = C.cliente_id
+
 
 --Para saber quantos clientes com fraude na entrada
 SELECT COUNT(DISTINCT(E1.cliente_id))
@@ -98,7 +139,7 @@ SELECT DISTINCT(C.cliente_id), C.nome, C.telefone, C.email
 from saidas S1
 inner join saidas S2 
 ON S1.cliente_id = S2.cliente_id and 
-DATEDIFF(SECOND,S1.data, S2.data) > 0 and 
+ 
 DATEDIFF(SECOND,S1.data, S2.data) < 120 
 INNER JOIN clientes C
 ON S1.cliente_id = C.cliente_id

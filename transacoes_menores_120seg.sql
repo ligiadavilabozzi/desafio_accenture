@@ -1,4 +1,4 @@
--- Para saber o cliente e a data do fraude: 
+-- Para saber os clientes fraudados nas saï¿½das e a data do fraude: 
 SELECT  C.nome, C.telefone, S1.valor, S1.data, S2.valor, S2.data 
 from saidas S1
 inner join saidas S2 
@@ -28,7 +28,7 @@ ON E1.cliente_id = E2.cliente_id and
 DATEDIFF(SECOND,E1.data, E2.data) > 0 and 
 DATEDIFF(SECOND,E1.data, E2.data) < 120 
 
---Para saber quantos clientes com fraude na saída
+--Para saber quantos clientes com fraude na saï¿½da
 SELECT COUNT(DISTINCT(S1.cliente_id))
 from saidas S1
 inner join saidas S2 
@@ -48,7 +48,7 @@ INNER JOIN clientes C
 ON E1.cliente_id = C.cliente_id
 ORDER BY C.nome
 
--- Para selecionar nome telefone e e-mail dos clientes fraudados na saída
+-- Para selecionar nome telefone e e-mail dos clientes fraudados na saï¿½da
 SELECT DISTINCT(C.nome), C.telefone, C.email, C.cliente_id
 from saidas S1
 inner join saidas S2 
@@ -69,7 +69,7 @@ CREATE TABLE fraudes_entradas (
 	email varchar(255)
 )
 
--- Inserção de clientes, nome, telefone, email na tabela de fraudes entradas:
+-- Inserï¿½ï¿½o de clientes, nome, telefone, email na tabela de fraudes entradas:
 INSERT INTO fraudes_entradas (cliente_id , nome, telefone, email)
 SELECT DISTINCT(C.cliente_id), C.nome, C.telefone, C.email
 from entradas E1
@@ -81,7 +81,7 @@ INNER JOIN clientes C
 ON E1.cliente_id = C.cliente_id
 
 
--- Criando a tabela de fraudes na saída
+-- Criando a tabela de fraudes na saï¿½da
 CREATE TABLE fraudes_saidas (
 	id int IDENTITY(1,1) PRIMARY KEY,
 	cliente_id int,
@@ -92,7 +92,7 @@ CREATE TABLE fraudes_saidas (
 )
 
 
--- Inserção de clientes, nome, telefone, email na tabela de fraudes saídas:
+-- Inserï¿½ï¿½o de clientes, nome, telefone, email na tabela de fraudes saï¿½das:
 INSERT INTO fraudes_saidas(cliente_id , nome, telefone, email)
 SELECT DISTINCT(C.cliente_id), C.nome, C.telefone, C.email
 from saidas S1
