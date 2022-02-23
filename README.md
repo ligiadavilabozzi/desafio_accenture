@@ -81,10 +81,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## Grupo
 
-- Ana Vitória de Souza Cruz:
+- Ana Vitória de Souza Cruz: https://github.com/AnaVitoriaSouza
 - Flávia Labanca: https://github.com/flavialabanca
 - Lígia D'Ávila Bozzi: https://github.com/ligiadavilabozzi
-- Lívia Lins Melo
+- Lívia Lins Melo: 
 - Marcia Talyta Campelo Reis: https://github.com/marciacampeloreis
 - Rayana Alves
 - Thalita Roberta Macêdo Lima
