@@ -1,4 +1,5 @@
 import pyodbc
+import time
 
 connection = pyodbc.connect(
     'DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-I882R5G;DATABASE=inconsistencia;Trusted_Connection=yes;')
@@ -20,6 +21,8 @@ cursor.execute(
 )
 ''')
 connection.commit()
+time.sleep(1)
+print('Tabelas clientes criado no banco "inconsistencia"')
 
 cursor.execute(
     '''
@@ -32,6 +35,8 @@ cursor.execute(
   )
 ''')
 connection.commit()
+time.sleep(1)
+print('Tabelas entradas criado no banco "inconsistencia"')
 
 cursor.execute(
     '''
@@ -44,7 +49,11 @@ cursor.execute(
 )
 ''')
 connection.commit()
-
+time.sleep(1)
+print('Tabelas saidas criado no banco "inconsistencia"')
 
 cursor.close()
 connection.close()
+
+time.sleep(1)
+print('As tabelas foram criadas com sucesso no banco de dados inconsistência')

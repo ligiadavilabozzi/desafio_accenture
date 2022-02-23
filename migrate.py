@@ -1,6 +1,6 @@
-import time
 from os.path import exists
 import pyodbc
+import time
 
 connection = pyodbc.connect(
     'DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-I882R5G;DATABASE=inconsistencia;Trusted_Connection=yes;')
@@ -98,7 +98,12 @@ def lerArquivosSaidas(id=1):
 
 
 lerArquivoClientes()
-
+print('Arquivos de clientes lidos com sucesso')
+time.sleep(1)
 lerArquivoEntradas()
-
+print('Arquivos de entradas lidos com sucesso')
+time.sleep(1)
 lerArquivosSaidas()
+print('Arquivos de saídas lidos com sucesso')
+time.sleep(1.5)
+print('Arquivos inseridos com sucesso no banco de dados')
