@@ -38,7 +38,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [Python](https://www.python.org)
 - [Git](https://git-scm.com)
 
-Bibliotecas da aplicação: [Pyodbc](https://mkleehammer.github.io/pyodbc/), [os.path](https://docs.python.org/3/library/os.path.html)
+Bibliotecas da aplicação: [Pyodbc](https://mkleehammer.github.io/pyodbc/), [os.path](https://docs.python.org/3/library/os.path.html), [time](https://docs.python.org/3/library/time.html)
 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
