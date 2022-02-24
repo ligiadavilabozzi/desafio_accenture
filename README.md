@@ -6,8 +6,7 @@
 
   - [Qual o desafio?](#qual-o-desafio)
   - [Objetivos](#objetivos)
-  - [Aplicação](#aplicação)
-  - [Tabela de conteúdos](#tabela-de-conteúdos)
+  - [A Aplicação](#a-aplicação)
   - [Features](#features)
   - [Pré-requisitos](#pré-requisitos)
   - [Modelagem de entidades e relacionamentos](#modelagem-de-entidades-e-relacionamentos)
@@ -53,21 +52,19 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 $ git clone <[git@github.com](mailto:git@github.com):ligiadavilabozzi/desafio_accenture.git>
 
-# Acesse a pasta do projeto no terminal/cmd
-
 # No MS SQL Server crie um banco de dados chamado inconsistência
 
-# Abra o arquivo [createTables.py](http://createTables.py) e altere o nome SERVER para seu servidor do MS SQL Server
+# Acesse a pasta do projeto no terminal/cmd 
 
-# Crie as tabelas principais do banco de dados
+# Gere os relatórios em Python:  
+$ python exec.py
 
-$ python createTables.py
 
-# Popule as tabelas com os dados do cvs: 
 
-$ python migrate.py
+# Abra o arquivo migrate.py e createTables.py e muda o SERVER para seu servidor na linha:  
+$'DRIVER={ODBC Driver 17 for SQL Server};SERVER=SEU-SERVIDOR;DATABASE=inconsistencia;Trusted_Connection=yes;') 
 
-# Abra o SQL Server o rode as queries que estão no arquivo report.sql para gerar as tabelas de report. Neste mesmo arquivo também estão queries de select que geram relatório importantes, cada query vem como uma descrição do seu significado. 
+# Para rodar outros relatórios copia as queries disponíveis em tables_for_powerBI.sql e cole no MS SQL Server e rode as queries desejadas
 
 ```
 
