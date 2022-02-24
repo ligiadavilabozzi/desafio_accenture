@@ -1,12 +1,7 @@
 # importação dos arquivos
 from createTables import createTables
-from migrate import lerArquivosClientes
-from migrate import lerArquivosEntradas
-from migrate import lerArquivosSaidas
-from report import numero_clientes_entrada
-from report import numero_clientes_saida
-from report import clientes_fraudados_entrada
-from report import clientes_fraudados_saida
+from migrate import lerArquivosClientes, lerArquivosEntradas, lerArquivosSaidas
+from report import numero_clientes_entrada, numero_clientes_saida, clientes_fraudados_entrada, clientes_fraudados_saida
 import time
 
 # Lista com as opções
