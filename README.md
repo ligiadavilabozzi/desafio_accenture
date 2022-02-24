@@ -54,15 +54,13 @@ $ git clone <[git@github.com](mailto:git@github.com):ligiadavilabozzi/desafio_ac
 
 # No MS SQL Server crie um banco de dados chamado inconsistência
 
+# Abra o arquivo migrate.py e createTables.py e muda o SERVER para seu servidor na linha:  
+$'DRIVER={ODBC Driver 17 for SQL Server};SERVER=SEU-SERVIDOR;DATABASE=inconsistencia;Trusted_Connection=yes;') 
+
 # Acesse a pasta do projeto no terminal/cmd 
 
 # Gere os relatórios em Python:  
 $ python exec.py
-
-
-
-# Abra o arquivo migrate.py e createTables.py e muda o SERVER para seu servidor na linha:  
-$'DRIVER={ODBC Driver 17 for SQL Server};SERVER=SEU-SERVIDOR;DATABASE=inconsistencia;Trusted_Connection=yes;') 
 
 # Para rodar outros relatórios copia as queries disponíveis em tables_for_powerBI.sql e cole no MS SQL Server e rode as queries desejadas
 
