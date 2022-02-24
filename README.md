@@ -6,8 +6,7 @@
 
   - [Qual o desafio?](#qual-o-desafio)
   - [Objetivos](#objetivos)
-  - [Aplicação](#aplicação)
-  - [Tabela de conteúdos](#tabela-de-conteúdos)
+  - [A Aplicação](#a-aplicação)
   - [Features](#features)
   - [Pré-requisitos](#pré-requisitos)
   - [Modelagem de entidades e relacionamentos](#modelagem-de-entidades-e-relacionamentos)
@@ -25,6 +24,7 @@ Desenvolver uma aplicação em Python para carga de arquivos em um banco de dado
 Seu objetivo inicial é analisar estes arquivos criando uma base de dados relacional para fazer a carga e depois analisá-la. O cartão fraudado, será aquele que tiver movimentações abaixo de 2 minutos de espaçamento entre as transações.
 
 ### **A aplicação**
+![gif exec.py](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/gifdatela.gif)
 
 ## **Features**
 
@@ -52,21 +52,17 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 $ git clone <[git@github.com](mailto:git@github.com):ligiadavilabozzi/desafio_accenture.git>
 
-# Acesse a pasta do projeto no terminal/cmd
-
 # No MS SQL Server crie um banco de dados chamado inconsistência
 
-# Abra o arquivo [createTables.py](http://createTables.py) e altere o nome SERVER para seu servidor do MS SQL Server
+# Abra o arquivo migrate.py e createTables.py e muda o SERVER para seu servidor na linha:  
+$'DRIVER={ODBC Driver 17 for SQL Server};SERVER=SEU-SERVIDOR;DATABASE=inconsistencia;Trusted_Connection=yes;') 
 
-# Crie as tabelas principais do banco de dados
+# Acesse a pasta do projeto no terminal/cmd 
 
-$ python createTables.py
+# Gere os relatórios em Python:  
+$ python exec.py
 
-# Popule as tabelas com os dados do cvs: 
-
-$ python migrate.py
-
-# Abra o SQL Server o rode as queries que estão no arquivo report.sql para gerar as tabelas de report. Neste mesmo arquivo também estão queries de select que geram relatório importantes, cada query vem como uma descrição do seu significado. 
+# Para rodar outros relatórios copia as queries disponíveis em tables_for_powerBI.sql e cole no MS SQL Server e rode as queries desejadas
 
 ```
 
@@ -81,6 +77,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - ![VS Code](https://img.shields.io/badge/Visual%20Studio-Code-blue)
 
 ## Grupo
+![grupo](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/grupo.png)
 
 - Ana Vitória de Souza Cruz: https://github.com/AnaVitoriaSouza
 - Flávia Labanca: https://github.com/flavialabanca
