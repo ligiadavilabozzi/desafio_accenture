@@ -25,6 +25,7 @@ Desenvolver uma aplicação em Python para carga de arquivos em um banco de dado
 Seu objetivo inicial é analisar estes arquivos criando uma base de dados relacional para fazer a carga e depois analisá-la. O cartão fraudado, será aquele que tiver movimentações abaixo de 2 minutos de espaçamento entre as transações.
 
 ### **A aplicação**
+![gif exec.py](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/gifdatela.gif)
 
 ## **Features**
 
@@ -81,6 +82,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - ![VS Code](https://img.shields.io/badge/Visual%20Studio-Code-blue)
 
 ## Grupo
+![grupo](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/grupo.png)
 
 - Ana Vitória de Souza Cruz: https://github.com/AnaVitoriaSouza
 - Flávia Labanca: https://github.com/flavialabanca
