@@ -44,7 +44,7 @@ Bibliotecas da aplicação: [Pyodbc](https://mkleehammer.github.io/pyodbc/), [os
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ## **Modelagem de entidades e relacionamentos**
-
+![Modelagem](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/modelagem.jpeg)
 ## **Rodando a aplicação**
 
 ```bash
@@ -67,6 +67,12 @@ $ python exec.py
 ```
 
 ## Relatórios do Power BI
+### Relatório das fraudes das transações de entrada: 
+![entrada](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/entrada.png)
+### Relatório das fraudes das transações de saída: 
+![saida](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/saida.png) 
+### Relatório das diferenças entre fraudes das transações de saída: 
+![diferenca](https://github.com/ligiadavilabozzi/desafio_accenture/blob/main/img/diferenca.png)
 
 ## 🛠 Tecnologias
 
