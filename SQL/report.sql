@@ -1,33 +1,36 @@
 use inconsistencia
 
 -- Para saber os clientes fraudados nas entradas e a data do fraude: 
-SELECT C.cliente_id "ID do Cliente", C.nome Nome, E1.valor "Valor recebido", 
-		cast(E1.Data as datetime2(0)) Data, E2.valor "Valor recebido", 
-    cast(E2.Data as datetime2(0)) Data,
-		DATEDIFF(SECOND,E1.data, E2.data) "Intervalo entre Transações (s)"
-from entradas E1
-inner join entradas E2 
-ON E1.cliente_id = E2.cliente_id 
-INNER JOIN clientes C
-ON E1.cliente_id = C.cliente_id
-where DATEDIFF(SECOND,E1.data, E2.data) > 0 and 
-DATEDIFF(SECOND,E1.data, E2.data) < 120 
-ORDER BY E1.cliente_id
+SELECT C.cliente_id "ID do Cliente", C.nome Nome, E2.id "ID da Transação", 
+      CAST(E2.Data as datetime2(0)) Data "Data da Transação",
+      MIN(DATEDIFF(SECOND,E1.data, E2.data)) "Intervalo entre Transações (s)"
+FROM entradas E1
+  INNER JOIN entradas E2 
+  ON E1.cliente_id = E2.cliente_id 
+  INNER JOIN clientes C
+  ON E1.cliente_id = C.cliente_id
+WHERE 
+  DATEDIFF(SECOND,E1.data, E2.data) > 0 and 
+  DATEDIFF(SECOND,E1.data, E2.data) < 120 
+GROUP BY C.cliente_id, C.nome, E2.id, E2.data
+ORDER BY C.cliente_id
+
 
 
 -- Para saber os clientes fraudados nas saídas e a data do fraude: 
-SELECT C.cliente_id "ID do Cliente", C.nome Nome, S1.valor "Valor retirado", 
-		cast(S1.Data as datetime2(0)) Data, S2.valor "Valor retirado", 
-		cast(S2.Data as datetime2(0)) Data,
-		DATEDIFF(SECOND,S1.data, S2.data) "Intervalo entre Transações (s)"
-from saidas S1
-inner join saidas S2 
-ON S1.cliente_id = S2.cliente_id 
-INNER JOIN clientes C
-ON S1.cliente_id = C.cliente_id
-where DATEDIFF(SECOND,S1.data, S2.data) > 0 and 
-DATEDIFF(SECOND,S1.data, S2.data) < 120 
-ORDER BY S1.cliente_id
+SELECT C.cliente_id "ID do Cliente", C.nome Nome, S2.id "ID da Transação",
+      CAST(S2.Data as datetime2(0)) Data "Data da Transação",
+      MIN(DATEDIFF(SECOND,S1.data, S2.data)) "Intervalo entre Transações (s)"
+FROM saidas S1
+  INNER JOIN saidas S2 
+  ON S1.cliente_id = S2.cliente_id 
+  INNER JOIN clientes C
+  ON S1.cliente_id = C.cliente_id
+WHERE 
+  DATEDIFF(SECOND,S1.data, S2.data) > 0 and 
+  DATEDIFF(SECOND,S1.data, S2.data) < 120 
+GROUP BY C.cliente_id, C.nome, S2.id, S2.data
+ORDER BY C.cliente_id
 
 --------------------------------------------------------------------------------------------------------------------
 

@@ -48,7 +48,9 @@ while True:
         print('Dados de transações de saidas inseridos com sucesso na tabela saidas')
         print(
             "----------------------------------------------------------------------------")
+        print("O terminal será fechado, abra-o novamente caso deseje gerar os relatórios")
         time.sleep(2)
+        exit()
     if opcao == 3:
         numero_clientes_entrada()
         numero_clientes_saida()

@@ -52,7 +52,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 $ git clone <[git@github.com](mailto:git@github.com):ligiadavilabozzi/desafio_accenture.git>
 
-# No MS SQL Server crie um banco de dados chamado inconsistência
+# No MS SQL Server crie um banco de dados chamado inconsistência e configure para o idioma inglês(Estados Unidos)
 
 # Abra o arquivo migrate.py e createTables.py e muda o SERVER para seu servidor na linha:  
 $'DRIVER={ODBC Driver 17 for SQL Server};SERVER=SEU-SERVIDOR;DATABASE=inconsistencia;Trusted_Connection=yes;') 
