@@ -1,13 +1,12 @@
 from os.path import exists
 import pyodbc
-import time
 
 connection = pyodbc.connect(
     'DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-I882R5G;DATABASE=inconsistencia;Trusted_Connection=yes;')
 cursor = connection.cursor()
 
 
-def lerArquivoClientes(id=1):
+def lerArquivosClientes(id=1):
     id_str = str(id)
     arquivo = open(
         f"./csv/clients-{id_str.zfill(3)}.csv", "r", encoding="utf-8")
@@ -28,15 +27,16 @@ def lerArquivoClientes(id=1):
             data_cadastro = linha_array[3].removesuffix("-0300")
             telefone = linha_array[4]
             cursor.execute(
-                "insert into clientes(cliente_id, nome, email, data_cadastro, telefone) values (?,?,?,?,?)", cliente_id, nome, email, data_cadastro, telefone)
+                "insert into clientes(cliente_id, nome, email, data_cadastro, telefone) values (?,?,?,?,?)",
+                cliente_id, nome, email, data_cadastro, telefone)
             connection.commit()
     arquivo.close()
 
     if exists(f"./csv/clients-{str(id+1).zfill(3)}.csv"):
-        lerArquivoClientes(id+1)
+        lerArquivosClientes(id+1)
 
 
-def lerArquivoEntradas(id=1):
+def lerArquivosEntradas(id=1):
     id_str = str(id)
     arquivo = open(
         f"./csv/transaction-in-{id_str.zfill(3)}.csv", "r", encoding="utf-8")
@@ -62,7 +62,7 @@ def lerArquivoEntradas(id=1):
             pass
     arquivo.close()
     if exists(f"./csv/transaction-in-{str(id+1).zfill(3)}.csv"):
-        lerArquivoEntradas(id+1)
+        lerArquivosEntradas(id+1)
 
 
 def lerArquivosSaidas(id=1):
@@ -95,15 +95,3 @@ def lerArquivosSaidas(id=1):
 
     if exists(f"./csv/transaction-out-{str(id+1).zfill(3)}.csv"):
         lerArquivosSaidas(id+1)
-
-
-lerArquivoClientes()
-print('Arquivos de clientes lidos com sucesso')
-time.sleep(1)
-lerArquivoEntradas()
-print('Arquivos de entradas lidos com sucesso')
-time.sleep(1)
-lerArquivosSaidas()
-print('Arquivos de saídas lidos com sucesso')
-time.sleep(1.5)
-print('Arquivos inseridos com sucesso no banco de dados')
